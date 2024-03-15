@@ -1,14 +1,12 @@
 #include <iostream>
-#include <limits>
 
 int main() {
-    const int arraySize = 5;
-    int array[arraySize] = { 2, 5, 8, 10, 3 };
+    int array[] = { 2, 5, 8, 10, 3 };
 
-    int minElement = std::numeric_limits<int>::max();
-    int maxElement = std::numeric_limits<int>::min();
+    int minElement = array[0];
+    int maxElement = array[0];
 
-    for (int i = 0; i < arraySize; ++i) {
+    for (int i = 1; i < sizeof(array) / sizeof(array[0]); ++i) {
         if (array[i] < minElement) {
             minElement = array[i];
         }
@@ -17,8 +15,8 @@ int main() {
         }
     }
 
-    std::cout << "min: " << minElement << std::endl;
-    std::cout << "max: " << maxElement << std::endl;
+    std::cout << "Min: " << minElement << std::endl;
+    std::cout << "Max: " << maxElement << std::endl;
 
     return 0;
 }
